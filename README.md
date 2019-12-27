@@ -3,11 +3,19 @@
 ## Overview
 
 United States is home to many military families, made up of veterans, active-duty service members, spouses, and dependents. US active service consisted of 1,358,193 i.e. 0.4% of the US population and was the third largest active military army in the world as of 2018. The U.S. Department of Labor estimates that the military trains people in skills applicable in at least 962 civilian occupations. To support Hire Heroes in accomplishing their mission it is necessary to determine the relationship between a client’s demographic profile, amount of time spent working with individual clients (time to complete an assessment, time to complete resume, # of logged activities, etc.)  and the time required for the veterans to get hired. 
-<img src="Images/Activity.png" width="100%" />
+
 
 ## Business Goal
 
 Our business goal is to help HHUSA in its primary function by building a prediction model and identifying the most critical factors that are influencing a veteran to get hired. 
+
+<img src="Images/Activity.png" width="100%" />
+
+
+<img src="Images/Disability.png" width="100%" />
+
+
+<img src="Images/Employment_Status.png" width="100%" />
 
 ## Data Profile
 
@@ -20,6 +28,10 @@ my_data <- read_excel("Modified - Contacts 3.xlsx")
 #Reading the acitivities file
 activities <- read.csv("SalesForce_2018Activities.csv", header=T, strip.white = T, na.strings = c("NA","NaN","","?"))
 ```
+
+<img src="Images/.png" width="100%" />
+
+
 ## Methodology
 
 The entire data for the Teradata Data Challenge is provided by a non-profit partner, Hire Heroes USA, whose mission is to empower U.S. military members, veterans and military spouses to succeed in the civilian workforce. Hire Heroes USA uses Salesforce as their CRM, so most of their data is structured based on Salesforce's use of Objects. The data provided includes 13 spreadsheets, which we’ll be using to answer the following business questions:
