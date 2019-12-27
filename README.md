@@ -45,13 +45,14 @@ For our model, we apply a Naïve Bayes model with 10-fold cross validation, whic
 Neural Networks:
 Neural Network (or Artificial Neural Network) has the ability to learn by examples. ANN is an information processing model inspired by the biological neuron system. It is composed of a large number of highly interconnected processing elements known as the neuron to solve problems. It follows the non-linear path and process information in parallel throughout the nodes. A neural network is a complex adaptive system. Adaptive means it has the ability to change its internal structure by adjusting weights of inputs. 
 
-NN Model 1 
-●	Parameters / Tuning - 3 hidden nodes (a 64-3-1 network with 199 weights), max iteration - 100 
-●	AUC - 0.8991
+NN Model 1
+<ul>
+<li>Parameters / Tuning - 3 hidden nodes (a 64-3-1 network with 199 weights), max iteration - 100 </li>
+<li> AUC - 0.8991 </li>
 NN Model 2
 ●	Parameters / Tuning - 10 hidden nodes (a 64-10-1 network with 661 weights), max iteration - 100 
 ●	AUC - 0.924
-
+</ul>
 GLM Net: 
 This stands for Lasso and Elastic-Net Regularized Generalized Linear Models. It’s extremely efficient procedures for fitting the entire lasso or elastic-net regularization path for linear regression, logistic and multinomial regression models, Poisson regression and the Cox model. 
 
