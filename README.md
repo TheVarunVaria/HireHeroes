@@ -57,8 +57,9 @@ NN Model 1
 GLM Net: 
 This stands for Lasso and Elastic-Net Regularized Generalized Linear Models. It’s extremely efficient procedures for fitting the entire lasso or elastic-net regularization path for linear regression, logistic and multinomial regression models, Poisson regression and the Cox model. 
 
-GLM Model
 <ul>
+GLM Model
+
 <li>Parameters / Tuning - 3-fold Cross Validation with default parameters
 <li>AUC - 0.9101
 <li>Accuracy 0.8306
