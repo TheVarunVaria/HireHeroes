@@ -9,13 +9,13 @@ United States is home to many military families, made up of veterans, active-dut
 
 Our business goal is to help HHUSA in its primary function by building a prediction model and identifying the most critical factors that are influencing a veteran to get hired. 
 
-<img src="Images/Activity.png" width="100%" />
+<img src="Images/Activity.png" width="70%" />
 
 
-<img src="Images/Disability.png" width="100%" />
+<img src="Images/Disability.png" width="70%" />
 
 
-<img src="Images/Employment_Status.png" width="100%" />
+<img src="Images/Employment_Status.png" width="70%" />
 
 ## Data Profile
 
@@ -29,7 +29,7 @@ my_data <- read_excel("Modified - Contacts 3.xlsx")
 activities <- read.csv("SalesForce_2018Activities.csv", header=T, strip.white = T, na.strings = c("NA","NaN","","?"))
 ```
 
-<img src="Images/.png" width="100%" />
+<img src="Images/Picture1.png" width="100%" />
 
 
 ## Methodology
