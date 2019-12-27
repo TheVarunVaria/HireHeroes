@@ -67,7 +67,7 @@ NN Model 1
 </ul>
 
 
-<img src="Images/NNAUC.png" width="70%" />
+<img src="Images/NNAUC.png" width="40%" />
 
 
 ### GLM Net: 
@@ -91,7 +91,7 @@ GBM Model
 <li>Accuracy: 0.8597 
 </ul>
 
-<img src="Images/GBMAUC.png" width="70%" />
+<img src="Images/GBMAUC.png" width="40%" />
 
 
 ### Random Forest:
@@ -148,7 +148,7 @@ rf_finetuned2 <- train(`Hired/NotHired`~ ., data = train_data,
                 num.trees = 120)
 ```
 
-<img src="Images/RFAUC.png" width="70%" />
+<img src="Images/RFAUC.png" width="40%" />
 
 ### Survival Analysis
 
@@ -207,7 +207,7 @@ ggplot(comsurvData, aes(time = DaysToHire, status = Hired.Flag,
                         color = factor(Connected_To_Transition_Specialist))) + geom_km()
 ```
 
-<img src="Images/SurvivalAnalysis.png" width="70%" />
+<img src="Images/SurvivalAnalysis.png" width="50%" />
 
 
 
