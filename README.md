@@ -105,7 +105,26 @@ Used 10-fold Repeated Cross-Validation, repeating 3 times. Used ‘caret’ pack
 <li>mtry: 3 to 7, best value: 7, 
 <li>num.tree: 10 to 150, best value: 120
 </ul>
+```
 
+control <- trainControl(method='repeatedcv', 
+                        number=10, 
+                        repeats=3)
+#Metric compare model is Accuracy
+#Number randomely variable selected is mtry
+mtry <- c(3:10)
+tunegrid <- expand.grid(.mtry=mtry)
+
+attach(train_data)
+rf_finetuned1 <- train(`Hired/NotHired`~., 
+                    data=train_data, 
+                    method='rf', 
+                    metric='Accuracy', 
+                    tuneGrid=tunegrid, 
+                    trControl=control)
+print(rf_finetuned1)
+
+```
 4. Random Forest with Hyperparameter tuning and Cross Validation ~ final model:
 Used 10-fold Repeated Cross-Validation, repeating 3 times. Used ‘caret’ package, method=’ranger’. Hyperparameter used:
 <ul>
