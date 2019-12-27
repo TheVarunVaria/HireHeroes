@@ -112,7 +112,6 @@ rf2 <- randomForest(finaltraindata$`Hired/NotHired`~., data=finaltraindata,
                    importance=T,
                    proximity=F)
 print(rf2)
-
 ```
 4. Random Forest with Hyperparameter tuning and Cross Validation ~ final model:
 Used 10-fold Repeated Cross-Validation, repeating 3 times. Used ‘caret’ package, method=’ranger’. Hyperparameter used:
@@ -131,5 +130,5 @@ rf_finetuned2 <- train(`Hired/NotHired`~ ., data = train_data,
                 method = "ranger",
                 trControl = train.control, tuneGrid = rf_grid,
                 num.trees = 120)
-```
+
 </ul>
