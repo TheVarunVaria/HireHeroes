@@ -87,17 +87,49 @@ Used function tuneRF(). Parameters used:
 <li>ntrees: 10 to 150, best value: 120
 <li>mtry: 3 to 5, best value: 5
 </ul>
+```{r}
+
+rf <- randomForest(finaltraindata$`Hired/NotHired`~., data=finaltraindata, mtry=5, 
+                   ntree=120, 
+                   na.action=na.exclude, 
+                   importance=T,
+                   proximity=F)
+print(rf)
+
+```
+
 3. Random Forest with parameter tuning and Cross Validation: 
 Used 10-fold Repeated Cross-Validation, repeating 3 times. Used ‘caret’ package, method=’rf’. Parameters used:
 <ul>
 <li>mtry: 3 to 7, best value: 7, 
 <li>num.tree: 10 to 150, best value: 120
 </ul>
+```{r}
+
+rf2 <- randomForest(finaltraindata$`Hired/NotHired`~., data=finaltraindata, 
+                   ntree=120, 
+                   na.action=na.exclude, 
+                   importance=T,
+                   proximity=F)
+print(rf2)
+
+```
 4. Random Forest with Hyperparameter tuning and Cross Validation ~ final model:
 Used 10-fold Repeated Cross-Validation, repeating 3 times. Used ‘caret’ package, method=’ranger’. Hyperparameter used:
 <ul>
 <li>mtry : 3 to 10, best value: 7
 <li>splitrule: ("gini", "extratrees") - used value “gini”
 <li>min.node.size : (1, 3, 5) - best value: 1
+```{r}
+train.control <- trainControl(method = "cv", number = 10)
 
+rf_finetuned2 <- expand.grid(.mtry = c(6:9),
+                       .splitrule = c("gini", "extratrees"),
+                       .min.node.size = c(1, 3, 5))
+attach(train_data)
+rf_finetuned2 <- train(`Hired/NotHired`~ ., data = train_data,
+                method = "ranger",
+                trControl = train.control, tuneGrid = rf_grid,
+                num.trees = 120)
+```
 </ul>
