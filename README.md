@@ -87,7 +87,8 @@ Used function tuneRF(). Parameters used:
 <li>ntrees: 10 to 150, best value: 120
 <li>mtry: 3 to 5, best value: 5
 </ul>
-```{r}
+
+```
 
 rf <- randomForest(finaltraindata$`Hired/NotHired`~., data=finaltraindata, mtry=5, 
                    ntree=120, 
