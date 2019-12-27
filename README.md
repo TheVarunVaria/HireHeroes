@@ -104,15 +104,7 @@ Used 10-fold Repeated Cross-Validation, repeating 3 times. Used ‘caret’ pack
 <li>mtry: 3 to 7, best value: 7, 
 <li>num.tree: 10 to 150, best value: 120
 </ul>
-```{r}
 
-rf2 <- randomForest(finaltraindata$`Hired/NotHired`~., data=finaltraindata, 
-                   ntree=120, 
-                   na.action=na.exclude, 
-                   importance=T,
-                   proximity=F)
-print(rf2)
-```
 4. Random Forest with Hyperparameter tuning and Cross Validation ~ final model:
 Used 10-fold Repeated Cross-Validation, repeating 3 times. Used ‘caret’ package, method=’ranger’. Hyperparameter used:
 <ul>
