@@ -133,6 +133,42 @@ rf_finetuned2 <- train(`Hired/NotHired`~ ., data = train_data,
 
 In Random Forest classification model, using the features from the dataset we predicted the binary outcome of Hired & Not Hired veterans. But it is also critical to determine those features that affect the time it takes for an individual to get hired. We use survival analysis to determine this effect. Survival analysis is used to analyze data in which the time until the event is of interest. The response is often referred to as a failure time(not hired) or event time(hired). In survival analysis we are identifying the difference in the rate at which a client is  getting hired within ‘n’ days for the different variables under consideration.
 
+```
+surv.data <- myrawdata %>% select ("Hired/NotHired","Finalized_HHUSA_revised_resume_on_file__c","Status__c", "MyTrak_VTS_Assigned__c", "DaystoHire(Created-Hired)")
+
+colnames(surv.data)[colnames(surv.data) ==  'Hired/NotHired'] <- 'Hired.Flag'
+
+colnames(surv.data)[colnames(surv.data) ==  'DaystoHire(Created-Hired)'] <- 'DaysToHire'
+
+ colnames(surv.data)[colnames(surv.data) ==  'Finalized_HHUSA_revised_resume_on_file__c'] <- 'Resume_Created_Revised'
+colnames(surv.data)[colnames(surv.data) ==  'MyTrak_VTS_Assigned__c'] <- 'Connected_To_Transition_Specialist'
+
+mice <- mice(surv.data[,],m=1,maxit=5,meth='pmm')
+
+comsurvData <- complete(mice,1)
+
+comsurvData$Hired.Flag <- ifelse(surv.data$Hired.Flag =='Not Hired', 0, 1)
+
+comsurvData$Finalized_HHUSA_revised_resume_on_file__c <- as.factor(comsurvData$Resume_Created_Revised)
+
+comsurvData$Connected_To_Transition_Specialist <- as.factor(comsurvData$Connected_To_Transition_Specialist)
+
+comsurvData$Status__c <- as.factor(comsurvData$Status__c)
+
+summary(comsurvData)
+
+#Limiting the max days days to hire in analysis to 1000
+
+comsurvData <- comsurvData %>% 
+  filter(Hired.Flag == "1") %>% 
+  filter(DaysToHire < 1000)
+
+Survival analysis for the field Connected_To_Transition_Specialist
+suranl2 <- survfit(Surv(as.numeric(comsurvData$DaysToHire),comsurvData$Hired.Flag)~comsurvData$Resume_Created_Revised)
+
+```
+
+
 ## Results
 
 We can clearly see that the highest AUC is 92.9% for the Random Forest classifier with 10-fold cross validation, 120 trees and 5 variables for splitting at each tree node. An average of 19,620 instances out of 22,881 instances is found to be classified correctly with the highest score of 19,849 instances and lowest of 19,006 instances. Here our focus is on achieving the maximum True Positives, as we want to be able to predict how many people have been hired correctly.
@@ -142,6 +178,13 @@ We observe that the most important features, which can be categorized into Activ
 We had some interesting findings indicating that gender and disability play an important role in determining if a client is going to be hired in less than 180 days or not. A person with a disability of greater than 60% is less likely to be hired than a person without a disability. We can say that gender male consists of the majority class so the result from this would be inconclusive unless the data is balanced for male and females. 
 
 We also found some insights from our survival analysis which definitely helps us answer our problem statement partly. The main takeaway from this analysis is that if a client was assigned a specialist who helped them through the transition process, then the chances of the client getting hired in less than 180 days in the civilian market was significantly higher. This factors into our recommendations as well and therefore, definitely is an important finding from a result point of view.
+
+```
+summary(suranl2)
+
+ggplot(comsurvData, aes(time = DaysToHire, status = Hired.Flag, 
+                        color = factor(Connected_To_Transition_Specialist))) + geom_km()
+```
 
 ## Conclusion
 
