@@ -1,4 +1,4 @@
-# Helping Veterans get hired in civilian workforce using data science 
+# Empower U.S. military members, veterans, and military spouses to succeed in the civilian workforce: Using an Analytical approach
 
 ## Overview
 
