@@ -38,11 +38,11 @@ Before any kind of data wrangling, we used 2 models namely, Random Forest and Lo
 
 To answer the Classification problem (i.e. if a person is hired in 6 months - 180 days or not), we used the derived column ‘Hired/NotHired’ as our target variable and -feature list-, and used the following predictive algorithms:
 
-Naive Bayes Classifier ~ baseline: 
+### Naive Bayes Classifier ~ baseline: 
 This is a logic-based technique which is simple yet so powerful that it is often known to outperform complex algorithms for very large datasets. This algorithm is based on Bayes theorem but with strong assumptions regarding independence. This was used as our baseline model. 
 For our model, we apply a Naïve Bayes model with 10-fold cross validation, which gets 68% accuracy.
 
-Neural Networks:
+### Neural Networks:
 Neural Network (or Artificial Neural Network) has the ability to learn by examples. ANN is an information processing model inspired by the biological neuron system. It is composed of a large number of highly interconnected processing elements known as the neuron to solve problems. It follows the non-linear path and process information in parallel throughout the nodes. A neural network is a complex adaptive system. Adaptive means it has the ability to change its internal structure by adjusting weights of inputs. 
 
 NN Model 1
@@ -54,12 +54,12 @@ NN Model 1
 <li> AUC - 0.924 </li>
 </ul>
 
-GLM Net: 
+### GLM Net: 
 This stands for Lasso and Elastic-Net Regularized Generalized Linear Models. It’s extremely efficient procedures for fitting the entire lasso or elastic-net regularization path for linear regression, logistic and multinomial regression models, Poisson regression and the Cox model. 
 
-<ul>
-GLM Model
 
+GLM Model
+<ul>
 <li>Parameters / Tuning - 3-fold Cross Validation with default parameters
 <li>AUC - 0.9101
 <li>Accuracy 0.8306
@@ -68,13 +68,15 @@ GLM Model
 GBM:
 This stands for Generalized Boosted Regression Models. This is an implementation of extensions to Freund and Schapire's AdaBoost algorithm and Friedman's gradient boosting machine. Includes regression methods for least squares, absolute loss, t-distribution loss, quantile regression, logistic, multinomial logistic, Poisson, Cox proportional hazards partial likelihood, AdaBoost exponential loss, Huberized hinge loss, and Learning to Rank measures (LambdaMart). 
 <ul>
+  
 GBM Model
 <li>Parameters / Tuning - 3-fold Cross Validation with default parameters
 <li>AUC: 0.9271
 <li>Accuracy: 0.8597 
 </ul>
 <ul>
-Random Forest:
+  
+### Random Forest:
 Random Forest is a flexible, easy to use machine learning algorithm that produces, even without hyper-parameter tuning, a great result most of the time. It is also one of the most used algorithms, because it’s simplicity and the fact that it can be used for both classification and regression tasks. In this post, you are going to learn, how the random forest algorithm works and several other important things about it.
 For our analysis, we’ve used the following variants of the model:
 <li> <p> 	Random Forest with no tuning (default values): Reported AUC is 0.9195 </li> </p> 
