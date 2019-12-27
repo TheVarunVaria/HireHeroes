@@ -49,18 +49,20 @@ NN Model 1
 <ul>
 <li>Parameters / Tuning - 3 hidden nodes (a 64-3-1 network with 199 weights), max iteration - 100 </li>
 <li> AUC - 0.8991 </li>
-NN Model 2
-●	Parameters / Tuning - 10 hidden nodes (a 64-10-1 network with 661 weights), max iteration - 100 
-●	AUC - 0.924
+<li> NN Model 2 </li>
+<li> Parameters / Tuning - 10 hidden nodes (a 64-10-1 network with 661 weights), max iteration - 100 </li>
+<li> AUC - 0.924 </li>
 </ul>
+
 GLM Net: 
 This stands for Lasso and Elastic-Net Regularized Generalized Linear Models. It’s extremely efficient procedures for fitting the entire lasso or elastic-net regularization path for linear regression, logistic and multinomial regression models, Poisson regression and the Cox model. 
 
 GLM Model
-●	Parameters / Tuning - 3-fold Cross Validation with default parameters
-●	AUC - 0.9101
-●	Accuracy 0.8306
-
+<ul>
+<li>Parameters / Tuning - 3-fold Cross Validation with default parameters
+<li>AUC - 0.9101
+<li>Accuracy 0.8306
+</ul>
 GBM:
 This stands for Generalized Boosted Regression Models. This is an implementation of extensions to Freund and Schapire's AdaBoost algorithm and Friedman's gradient boosting machine. Includes regression methods for least squares, absolute loss, t-distribution loss, quantile regression, logistic, multinomial logistic, Poisson, Cox proportional hazards partial likelihood, AdaBoost exponential loss, Huberized hinge loss, and Learning to Rank measures (LambdaMart). 
 
