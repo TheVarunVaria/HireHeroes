@@ -80,16 +80,16 @@ GBM Model
 <ul>
 Random Forest is a flexible, easy to use machine learning algorithm that produces, even without hyper-parameter tuning, a great result most of the time. It is also one of the most used algorithms, because it’s simplicity and the fact that it can be used for both classification and regression tasks. In this post, you are going to learn, how the random forest algorithm works and several other important things about it.
 For our analysis, we’ve used the following variants of the model:
-<li> <p> 	Random Forest with no tuning (default values): Reported AUC is 0.9195 </li> </p> 
-<li> <p> 	Random Forest with fine tuning: </li> </p> 
+❖	  Random Forest with no tuning (default values): Reported AUC is 0.9195
+❖ 	Random Forest with fine tuning: 
 Used function tuneRF(). Parameters used:
 <li>ntrees: 10 to 150, best value: 120
 <li>mtry: 3 to 5, best value: 5
-<li> <p> Random Forest with parameter tuning and Cross Validation: </li> </p> 
+❖   Random Forest with parameter tuning and Cross Validation: 
 Used 10-fold Repeated Cross-Validation, repeating 3 times. Used ‘caret’ package, method=’rf’. Parameters used:
 <li>mtry: 3 to 7, best value: 7, 
 <li>num.tree: 10 to 150, best value: 120
-<li> <p> Random Forest with Hyperparameter tuning and Cross Validation ~ final model: </li> </p> 
+❖   Random Forest with Hyperparameter tuning and Cross Validation ~ final model:
 Used 10-fold Repeated Cross-Validation, repeating 3 times. Used ‘caret’ package, method=’ranger’. Hyperparameter used:
 <li>mtry : 3 to 10, best value: 7
 <li>splitrule: ("gini", "extratrees") - used value “gini”
