@@ -127,3 +127,24 @@ rf_finetuned2 <- train(`Hired/NotHired`~ ., data = train_data,
                 trControl = train.control, tuneGrid = rf_grid,
                 num.trees = 120)
 ```
+
+
+### Survival Analysis
+
+In Random Forest classification model, using the features from the dataset we predicted the binary outcome of Hired & Not Hired veterans. But it is also critical to determine those features that affect the time it takes for an individual to get hired. We use survival analysis to determine this effect. Survival analysis is used to analyze data in which the time until the event is of interest. The response is often referred to as a failure time(not hired) or event time(hired). In survival analysis we are identifying the difference in the rate at which a client is  getting hired within ‘n’ days for the different variables under consideration.
+
+## Results
+
+We can clearly see that the highest AUC is 92.9% for the Random Forest classifier with 10-fold cross validation, 120 trees and 5 variables for splitting at each tree node. An average of 19,620 instances out of 22,881 instances is found to be classified correctly with the highest score of 19,849 instances and lowest of 19,006 instances. Here our focus is on achieving the maximum True Positives, as we want to be able to predict how many people have been hired correctly.
+
+We observe that the most important features, which can be categorized into Active Participation, Specialist Consulting and Training Workshops. This is a significant finding as we can clearly see a direct correlation with the research question of determining if there is a relationship between the time spent with clients to how quickly they are hired. Spending time with clients here mean supporting them through trainings, providing consultation, and getting them to actively participate in various activities to stay on top of the industry standards like for resumes. We observe that the clients who have been actively participating in various activities, received consulting from specialists and have attended training workshops are more likely to be hired than those who did not.
+
+We had some interesting findings indicating that gender and disability play an important role in determining if a client is going to be hired in less than 180 days or not. A person with a disability of greater than 60% is less likely to be hired than a person without a disability. We can say that gender male consists of the majority class so the result from this would be inconclusive unless the data is balanced for male and females. 
+
+We also found some insights from our survival analysis which definitely helps us answer our problem statement partly. The main takeaway from this analysis is that if a client was assigned a specialist who helped them through the transition process, then the chances of the client getting hired in less than 180 days in the civilian market was significantly higher. This factors into our recommendations as well and therefore, definitely is an important finding from a result point of view.
+
+## Conclusion
+
+After going through the entire process of cleaning and understanding our data and interpreting the results, we have concluded there are a few significant factors which influence a veteran’s employability in the civilian market. We concluded that the most important features can be categorized into Active Participation, Specialist Consulting and Training Workshops and, these are the factors to be considered by Hire Heroes while looking at strategizing and understanding their client requirements better. Certain demographic features like Gender, Disability and Highest Level of Education show us some correlation but we need more supporting evidence to be able to validate this. Our current data suggests that these features could be skewed and therefore this could be a potential caveat to our model. However, ignoring these features could also result in potential decision-making errors and some extra validation techniques may be required to conclude with higher confidence.
+
+In response to our initial research question, we feel that we have successfully answered it and have been able to provide them with recommendations that could help them secure more funding to improve the quality of service currently provided. 
