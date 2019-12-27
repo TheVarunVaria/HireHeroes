@@ -66,6 +66,10 @@ NN Model 1
 <li> AUC - 0.924 </li>
 </ul>
 
+
+<img src="Images/NNAUC.png" width="70%" />
+
+
 ### GLM Net: 
 This stands for Lasso and Elastic-Net Regularized Generalized Linear Models. It’s extremely efficient procedures for fitting the entire lasso or elastic-net regularization path for linear regression, logistic and multinomial regression models, Poisson regression and the Cox model. 
 
@@ -87,7 +91,9 @@ GBM Model
 <li>Accuracy: 0.8597 
 </ul>
 
-  
+<img src="Images/GBMAUC.png" width="70%" />
+
+
 ### Random Forest:
 
 Random Forest is a flexible, easy to use machine learning algorithm that produces, even without hyper-parameter tuning, a great result most of the time. It is also one of the most used algorithms, because it’s simplicity and the fact that it can be used for both classification and regression tasks. In this post, you are going to learn, how the random forest algorithm works and several other important things about it.
@@ -127,6 +133,8 @@ Used 10-fold Repeated Cross-Validation, repeating 3 times. Used ‘caret’ pack
 
 </ul>
 
+
+
 ```{r}
 train.control <- trainControl(method = "cv", number = 10)
 
@@ -140,6 +148,7 @@ rf_finetuned2 <- train(`Hired/NotHired`~ ., data = train_data,
                 num.trees = 120)
 ```
 
+<img src="Images/RFAUC.png" width="70%" />
 
 ### Survival Analysis
 
@@ -197,6 +206,10 @@ summary(suranl2)
 ggplot(comsurvData, aes(time = DaysToHire, status = Hired.Flag, 
                         color = factor(Connected_To_Transition_Specialist))) + geom_km()
 ```
+
+<img src="Images/SurvivalAnalysis.png" width="70%" />
+
+
 
 ## Conclusion
 
